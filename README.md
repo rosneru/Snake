@@ -5,7 +5,7 @@ while I was teaching myself Python. Because of the later, perhaps not yet very
 "Pythonic..."
 
 
-![SCreenshot](snake-screenshot.png)
+![Screenshot](snake-screenshot.png)
 
 The additional packages `Pygame` (gaming framework) and `transitions` (state
 machine implementation) are used.
