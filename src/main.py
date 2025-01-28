@@ -21,29 +21,31 @@ game.set_speed(10)
 events = pygame.event.get()
 while not done:
     for event in events:
-        if event.type == pygame.constants.QUIT:
-            done = True
-        elif event.type == pygame.constants.KEYDOWN:
-            if event.key == pygame.constants.K_ESCAPE:
+        match event.type:
+            case pygame.constants.QUIT:
                 done = True
-            elif event.key == pygame.constants.K_RIGHT:
-                game.append_new_direction(MoveDirection.RIGHT)
-            elif event.key == pygame.constants.K_LEFT:
-                game.append_new_direction(MoveDirection.LEFT)
-            elif event.key == pygame.constants.K_UP:
-                game.append_new_direction(MoveDirection.UP)
-            elif event.key == pygame.constants.K_DOWN:
-                game.append_new_direction(MoveDirection.DOWN)
-            elif event.key == pygame.constants.K_1:
-                game.set_speed(5)
-            elif event.key == pygame.constants.K_2:
-                game.set_speed(10)
-            elif event.key == pygame.constants.K_3:
-                game.set_speed(20)
-            elif event.key == pygame.constants.K_4:
-                game.set_speed(30)
-            elif event.key == pygame.constants.K_5:
-                game.set_speed(60)
+            case pygame.constants.KEYDOWN:
+                match event.key:
+                    case pygame.constants.K_ESCAPE:
+                        done = True
+                    case pygame.constants.K_RIGHT:
+                        game.append_new_direction(MoveDirection.RIGHT)
+                    case pygame.constants.K_LEFT:
+                        game.append_new_direction(MoveDirection.LEFT)
+                    case pygame.constants.K_UP:
+                        game.append_new_direction(MoveDirection.UP)
+                    case pygame.constants.K_DOWN:
+                        game.append_new_direction(MoveDirection.DOWN)
+                    case pygame.constants.K_1:
+                        game.set_speed(5)
+                    case pygame.constants.K_2:
+                        game.set_speed(10)
+                    case pygame.constants.K_3:
+                        game.set_speed(20)
+                    case pygame.constants.K_4:
+                        game.set_speed(30)
+                    case pygame.constants.K_5:
+                        game.set_speed(60)
 
     if speed_counter < 60:
         speed_counter += game.get_speed()
